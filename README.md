@@ -26,8 +26,7 @@ Ajaminen
 - cd haeheia
 - java -jar target/haeheia-0.0.1-standalone.jar sahkoposti@osoite.fi salasana vuosi
 
-Ajo tulostaa hakemansa harjoituksen tiedot puolipisteellä erotettuna. Lisäksi se luo tiedoston vuosi.json, jossa harjoitukset ovat mahdollisimman täydellisinä json-muodossa. Lisänä tekstimuotoon on Heiaheiassa harjoituksen 
-yksilöivä hid, sekä "body" -kenttä, joka sisältää Heiaheian harjoituksen merkinnät. 
+Ajo tulostaa yhden harjoituksen tiedot puolipisteellä erotettuna ja hakee kerrallaan koko vuoden. Lisäksi se luo tiedoston vuosi.json, jossa harjoitukset ovat mahdollisimman täydellisinä json-muodossa. Lisänä tekstimuotoon on Heiaheiassa harjoituksen yksilöivä hid, sekä "body" -kenttä, joka sisältää Heiaheian harjoituksen merkinnät. 
 
 Esimerkki: 
 ----------
