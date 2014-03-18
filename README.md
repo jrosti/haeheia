@@ -3,11 +3,13 @@ haeheia
 
 haeheia hakee heiaheihan harkat ja tallentaa ne tekstimuotoon. 
 
+Ohjelma ei tarkasta kirjautumisen oikeellisuutta, tulosta virheilmoituksia tai tee mitään muitakaan varmistuksia. Harjoitusten tuonnin oikeellisuutta ei ole testattu. 
+
 vaatimukset
 ===========
 
 Ajamiseen:
-- git
+- git tai muu tapa kloonata githubin projekti
 - java ajoympäristö
 
 Kääntämiseen:
@@ -37,11 +39,12 @@ Esimerkki:
     [{"duration":"2 h 2 min","sport":"Juoksu","distance":"22 km","creationDate":"17.03.2014","body":"sisalto",
     "hid":"18711690591696","title":"rivi1"},... ]
 
-Kääntäminen
------------
+Muokkaaminen ja kääntäminen
+--------------------------
 
 - git clone ...
 - cd haeheia
+- muokkaa lähdekoodia tiedostossa src/haeheia/core.clj mielesi mukaan
 - lein run sposti@x.fi salasana vuosi
 
 
