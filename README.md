@@ -1,11 +1,11 @@
 haeheia
 =======
 
-haeheia hakee heiaheihan harkat ja tallentaa ne tekstimuotoon. 
+haeheia hakee heiaheian harkat ja tallentaa ne tekstimuotoon. 
 
 Ohjelma ei tarkasta kirjautumisen oikeellisuutta, tulosta virheilmoituksia tai tee mitään muitakaan varmistuksia. Harjoitusten tuonnin oikeellisuutta ei ole testattu. 
 
-vaatimukset
+Vaatimukset
 ===========
 
 Ajamiseen:
@@ -14,6 +14,7 @@ Ajamiseen:
 
 Kääntämiseen:
 - leiningen http://leiningen.org/
+- Java käännösympäristö.
 
 käyttöohje
 ==========
@@ -25,7 +26,8 @@ Ajaminen
 - cd haeheia
 - java -jar target/haeheia-0.0.1-standalone.jar sahkoposti@osoite.fi salasana vuosi
 
-Ajo tulostaa hakemansa harjoituksen tiedot puolipisteellä erotettuna. Lisäksi se luo tiedoston vuosi.json, jossa on edeltävän lisäksi harjoitukset mahdollisimman täydellisinä json-muodossa:
+Ajo tulostaa hakemansa harjoituksen tiedot puolipisteellä erotettuna. Lisäksi se luo tiedoston vuosi.json, jossa harjoitukset ovat mahdollisimman täydellisinä json-muodossa. Lisänä tekstimuotoon on Heiaheiassa harjoituksen 
+yksilöivä hid, sekä "body" -kenttä, joka sisältää Heiaheian harjoituksen merkinnät. 
 
 Esimerkki: 
 ----------
