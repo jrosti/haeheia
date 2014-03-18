@@ -3,6 +3,7 @@
               [net.cgrand.enlive-html :as html]
               [clojure.data.json :as json]
               [clojure.string :as string])
+    (:gen-class)
     (:import [java.io StringReader]))
 
 (def hsession "_hh_session_v_5")
