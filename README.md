@@ -13,7 +13,7 @@ Ajamiseen:
 - java ajoympäristö
 
 Kääntämiseen:
-- leiningen [Leiningen](http://leiningen.org/)
+- leiningen (http://leiningen.org/)
 
 käyttöohje
 ==========
