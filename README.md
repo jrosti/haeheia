@@ -1,7 +1,7 @@
 haeheia
 =======
 
-haeheia hakee heiaheian harkat ja tallentaa ne tekstimuotoon. 
+haeheia hakee Heiaheian harkat ja tallentaa ne tekstimuotoon. 
 
 Ohjelma ei tarkasta kirjautumisen oikeellisuutta, tulosta virheilmoituksia tai tee mitään muitakaan varmistuksia. Harjoitusten tuonnin oikeellisuutta ei ole testattu. 
 
