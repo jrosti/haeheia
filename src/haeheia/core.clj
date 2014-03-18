@@ -13,23 +13,30 @@
    {"Accept" 
     "*/*;q=0.5, text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"}})
 
+(defn do-login [username password]
+  (http/post "https://www.heiaheia.com/account/authenticate"
+             (merge json-headers 
+                    {:form-params {"user[email]" username
+                                   "user[password]" password}})))
+
 (defn login [username password]
-  (let [login-response 
-        (http/post "https://www.heiaheia.com/account/authenticate"
-                   {:form-params {"user[email]" username
-                                  "user[password]" password}})]
-    {:cookies { hsession 
-               (-> login-response 
-                   :cookies 
-                   (get hsession) 
-                   (dissoc :discard :expires :domain))}}))
+  (let [login-response (do-login username password)]
+    (if (.contains (:body login-response) "Login failed")
+      (throw (IllegalArgumentException. 
+              (str "Login failed: " (:body login-response)))) 
+      {:cookies { hsession 
+                 (-> login-response 
+                     :cookies 
+                     (get hsession) 
+                     (dissoc :discard :expires :domain))}})))
 
 (defn main-page [session]
   (Thread/sleep 300)
   (http/get "https://www.heiaheia.com/" session))
 
 (defn search-logs-uri [main-page-result] 
-  (str (first (re-seq #"https://www.heiaheia.com/users/\d+" (:body main-page-result)))
+  (str (first (re-seq #"https://www.heiaheia.com/users/\d+" 
+                      (:body main-page-result)))
        "/training_logs"))
   
 (defn logs [session logs-uri year page]
