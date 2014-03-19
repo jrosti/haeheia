@@ -86,8 +86,8 @@
            (feed-paragraphs feed-item) 
            (feed-content feed-item))
     (catch Exception e
-      {:unknown (str e)})))
-  
+      (println (html/text feed-item) " epäonnistui, virhe " e))))
+
 (defn as-feed-items [log]
     (html/select 
      (html/html-resource (StringReader. (log "content")))
