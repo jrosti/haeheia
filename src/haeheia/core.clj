@@ -67,9 +67,9 @@
       result)))
 
 (defn feed-content [feed-item]
-  (let [activity (-> (html/select feed-item [:span :a]) first :content first)
+  (let [activity (-> (html/select feed-item [:div.feed-item-user-and-date :span :a]) first :content first)
         time-sport-duration (extract-activity activity)
-        date-trash (-> (html/select feed-item [:span]) first :content last)
+        date-trash (-> (html/select feed-item [:div.feed-item-user-and-date :span]) first :content last)
         date (first (re-seq #"\d\d\.\d\d\.\d+" date-trash))]
     (assoc time-sport-duration :creationDate date)))
 
