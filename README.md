@@ -3,7 +3,8 @@ haeheia
 
 haeheia hakee Heiaheian harkat ja tallentaa ne tekstimuotoon. 
 
-Ohjelma ei tarkasta kirjautumisen oikeellisuutta, tulosta virheilmoituksia tai tee mitään muitakaan varmistuksia. Harjoitusten tuonnin oikeellisuutta ei ole testattu. 
+(Ohjelma hakee harkat suoraan html-feedistä vs. parempi tapa:
+https://github.com/HeiaHeia/api-docs johon tarkoitus siirtyä lähiaikoina)
 
 Vaatimukset
 ===========
