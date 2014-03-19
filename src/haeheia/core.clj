@@ -35,8 +35,8 @@
   (http/get "https://www.heiaheia.com/" session))
 
 (defn search-logs-uri [main-page-result] 
-  (str (first (re-seq #"https://www.heiaheia.com/users/\d+" 
-                      (:body main-page-result)))
+  (str "https://www.heiaheia.com" (first (re-seq #"/users/\d+" 
+                                                 (:body main-page-result)))
        "/training_logs"))
   
 (defn logs [session logs-uri year page]
