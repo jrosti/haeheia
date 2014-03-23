@@ -5,6 +5,7 @@
                  [org.clojure/data.json "0.2.4"]
                  [enlive "1.1.5"]]
   :aot  [haeheia.core]
+  :aliases {"csv2json" ["run" "-m" "haeheia.csvtojson/csv2json"]}
   :main  haeheia.core)
 
 
