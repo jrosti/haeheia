@@ -8,6 +8,10 @@
 
 (def hsession "_hh_session_v_5")
 
+(defn err-println [& args]
+  (binding [*out* *err*]
+    (apply println args)))
+
 (def json-headers 
   {:headers 
    {"Accept" 
@@ -82,11 +86,13 @@
 
 (defn process-item [feed-item]
   (try 
-    (merge (feed-header feed-item) 
-           (feed-paragraphs feed-item) 
-           (feed-content feed-item))
+    (let [content (feed-content feed-item)]
+      (if (-> content :sport not) (err-println "Ei lajia suorituksessa " (html/text feed-item)))
+      (merge (feed-header feed-item) 
+             (feed-paragraphs feed-item) 
+             content))
     (catch Exception e
-      (println (html/text feed-item) " epäonnistui, virhe " e))))
+      (err-println (html/text feed-item) " epäonnistui, virhe " e))))
 
 (defn as-feed-items [log]
     (html/select 
@@ -110,9 +116,18 @@
   (doseq [line (mapv (fn [ex] (apply str (interpose ";" ((juxt :creationDate :sport :title :duration :distance) ex)))) exs)]
     (println line)))
 
-(defn -main [username password year]
-  (let [session (login username password)
+(defn session-cookie [value] 
+  {:cookies {hsession 
+             {:path "/" 
+              :value value
+              :version 0
+              :secure true}}})
+
+(defn -main [username password-or-cookie year]
+  (let [session (case username
+                  "hsession" (session-cookie password-or-cookie)
+                  (login username password-or-cookie))
         nodes (fetch-year session year)
         json-nodes (process-nodes nodes)]
     (print-nodes json-nodes)
-    (spit (str year ".json") (json/write-str json-nodes)))) 
+    (spit (str year ".json") (json/write-str json-nodes))))
