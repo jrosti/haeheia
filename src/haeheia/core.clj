@@ -6,7 +6,7 @@
     (:gen-class)
     (:import [java.io StringReader]))
 
-(def hsession "_hh_session_v_5")
+(def hsession "_hh_session_v_6")
 
 (defn err-println [& args]
   (binding [*out* *err*]
