@@ -3,9 +3,6 @@ haeheia
 
 haeheia hakee Heiaheian harkat ja tallentaa ne tekstimuotoon. 
 
-(Ohjelma hakee harkat suoraan html-feedistä vs. parempi tapa:
-https://github.com/HeiaHeia/api-docs)
-
 Vaatimukset
 ===========
 
